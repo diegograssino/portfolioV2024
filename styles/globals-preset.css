@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme="dark"] {
+  --background: black;
+  --foreground: white;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    font-family: var(--font-primary);
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.5rem;
+  }
+  h6 {
+    font-size: 1.25rem;
+  }
+  code {
+    font-family: var(--font-code);
+  }
+}
