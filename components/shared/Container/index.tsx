@@ -1,6 +1,6 @@
-import { IContainer } from "@/types/shared";
+import { IContainerProps } from "@/types/shared";
 
-const Container = ({ children = "" }: IContainer) => {
+const Container = ({ children = "" }: IContainerProps) => {
   return (
     <div className="flex">
       <div className="flex-none w-2 sm:w-4 md:w-8 lg:w-12 xl:flex-1"></div>
