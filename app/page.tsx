@@ -1,6 +1,14 @@
+import Spinner from "@/components/shared/Spinner";
+
 const Home = () => {
   return (
     <main>
+      <div className="flex flex-col gap-4 my-4">
+        <Spinner size="xsmall" />
+        <Spinner size="small" />
+        <Spinner />
+        <Spinner size="large" />
+      </div>
       <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>
