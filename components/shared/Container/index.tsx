@@ -1,12 +1,14 @@
 import { IContainerProps } from "@/types/shared";
 
-const Container = ({ children = "" }: IContainerProps) => {
+const Container = ({
+  children,
+  as: Tag = "div",
+  ...otherProps
+}: IContainerProps) => {
   return (
-    <div className="flex">
-      <div className="flex-none w-2 sm:w-4 md:w-8 lg:w-12 xl:flex-1"></div>
-      <div className="flex-1 xl:w-[1280px] xl:flex-none">{children}</div>
-      <div className="flex-none w-2 sm:w-4 md:w-8 lg:w-12 xl:flex-1"></div>
-    </div>
+    <Tag {...otherProps}>
+      <div className="max-w-[1280px] mx-auto px-5">{children}</div>
+    </Tag>
   );
 };
 

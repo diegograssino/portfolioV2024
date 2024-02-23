@@ -4,10 +4,10 @@ const Home = () => {
   return (
     <main>
       <div className="flex flex-col gap-4 my-4">
-        <Spinner size="xsmall" />
+        <Spinner size="xsmall" speed="fast" />
         <Spinner size="small" />
         <Spinner />
-        <Spinner size="large" />
+        <Spinner size="large" speed="slow" />
       </div>
       <h1>h1</h1>
       <h2>h2</h2>

@@ -1,5 +1,7 @@
-export interface IContainerProps {
-  children?: React.ReactNode;
+import { ElementType, HTMLAttributes } from "react";
+
+export interface IContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
+  as?: ElementType;
 }
 
 export interface IEmojiProps {
@@ -10,5 +12,6 @@ export interface IEmojiProps {
 export interface ISpinner {
   dots?: number;
   size?: "xsmall" | "small" | "default" | "large";
-  isDark?: boolean;
+  speed?: "slow" | "default" | "fast";
+  hasDarkBackground?: boolean;
 }

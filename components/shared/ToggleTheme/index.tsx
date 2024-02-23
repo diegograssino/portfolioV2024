@@ -38,8 +38,8 @@ const ToggleTheme = () => {
             </motion.span>
           </div>
         ) : (
-          <div className="flex justify-center">
-            <Spinner size="xsmall" />
+          <div className="flex justify-center animate-pulse">
+            <Spinner size="xsmall" speed="fast" />
           </div>
         )}
       </button>
