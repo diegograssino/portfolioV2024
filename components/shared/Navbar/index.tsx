@@ -22,13 +22,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-secondary text-white py-1 sticky top-0 z-10"
+      className="bg-secondary-lighter dark:bg-secondary-darker text-white pt-1 pb-2 sticky top-0 z-10"
       onMouseLeave={() => handleMenu(false)}
     >
       <Container>
         <div className="flex justify-between">
           <IconDeviceFloppy
-            className="flex self-center text-tertiary"
+            className="flex self-center text-white opacity-75"
             size={"1.5rem"}
           />
           <div className="hidden md:block">
@@ -37,7 +37,7 @@ const Navbar = () => {
                 <li key={i} className="">
                   <Link
                     href={option.url}
-                    className="bg-transparent rounded-full px-2 pb-1 transition duration-300 ease-in-out hover:bg-secondary-lighter"
+                    className="bg-transparent rounded-full px-2 pb-1 dark:opacity-75 transition duration-200 ease-in-out hover:bg-secondary-darker dark:hover:bg-secondary hover:opacity-100"
                   >
                     {option.name}
                   </Link>
@@ -47,19 +47,22 @@ const Navbar = () => {
           </div>
           <div className="flex gap-3 md:gap-5">
             <button>
-              <IconSearch className="flex self-center" size={"1.2rem"} />
+              <IconSearch
+                className="flex self-center dark:opacity-75 hover:opacity-75 transition duration-200 ease-in-out"
+                size={"1.2rem"}
+              />
             </button>
             <ToggleTheme />
             <button className="md:hidden">
               {!isMenuVisible ? (
                 <IconMenu2
-                  className="flex self-center"
+                  className="flex self-center opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
                   size={"1.875rem"}
                   onClick={() => handleMenu(!isMenuVisible)}
                 />
               ) : (
                 <IconX
-                  className="flex self-center"
+                  className="flex self-center opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
                   size={"1.875rem"}
                   onClick={() => handleMenu(!isMenuVisible)}
                 />

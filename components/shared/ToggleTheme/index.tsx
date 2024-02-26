@@ -3,7 +3,6 @@ import { IconMoon, IconSun } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import Spinner from "../Spinner";
 
 const ToggleTheme = () => {
   const { resolvedTheme, setTheme } = useTheme();
@@ -19,11 +18,11 @@ const ToggleTheme = () => {
 
   return (
     <div className="flex gap-1">
-      <button
-        className="self-center w-10 h-6 border-2 border-white border-opacity-50 rounded-full px-[2px] py-[2px] transition-all bg-secondary-darker active:bg-secondary-lighter"
-        onClick={handleTheme}
-      >
-        {mounted ? (
+      {mounted ? (
+        <button
+          className="self-center w-10 h-6 rounded-full px-[2px] py-[2px] border-2 border-white border-opacity-50 transition duration-300 ease-in-out bg-secondary hover:bg-secondary-lighter dark:hover:bg-secondary-darker active:bg-secondary-darker dark:active:bg-secondary-lighter"
+          onClick={handleTheme}
+        >
           <div
             className={`flex gap-x-4 px-[2px] ${
               resolvedTheme === "dark" ? "justify-end" : "justify-start"
@@ -31,18 +30,16 @@ const ToggleTheme = () => {
           >
             <motion.span layout>
               {resolvedTheme === "dark" ? (
-                <IconMoon className="opacity-75" size={16} />
+                <IconMoon className="dark:opacity-75" size={16} />
               ) : (
-                <IconSun className="opacity-75" size={16} />
+                <IconSun className="dark:opacity-75" size={16} />
               )}
             </motion.span>
           </div>
-        ) : (
-          <div className="flex justify-center animate-pulse">
-            <Spinner size="xsmall" speed="fast" />
-          </div>
-        )}
-      </button>
+        </button>
+      ) : (
+        <div className="flex justify-center w-10 h-6 rounded-full px-[2px] py-[2px] animate-pulse bg-white opacity-50" />
+      )}
     </div>
   );
 };
