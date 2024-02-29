@@ -9,19 +9,16 @@ import { Providers } from "./providers";
 const primaryFont = Epilogue({
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
   variable: "--font-primary",
 });
 const secondaryFont = Barlow({
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
   variable: "--font-secondary",
 });
 const codeFont = Source_Code_Pro({
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
   variable: "--font-code",
 });
 
@@ -46,6 +43,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
+          asdasdasd
           <Container as="main">{children}</Container>
           <div className="h-16" />
           <Footer />
