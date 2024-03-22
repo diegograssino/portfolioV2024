@@ -6,8 +6,10 @@ const Container = ({
   ...otherProps
 }: IContainerProps) => {
   return (
-    <Tag {...otherProps}>
-      <div className="max-w-[1280px] mx-auto px-5">{children}</div>
+    <Tag>
+      <div className="max-w-[1280px] mx-auto px-5" {...otherProps}>
+        {children}
+      </div>
     </Tag>
   );
 };

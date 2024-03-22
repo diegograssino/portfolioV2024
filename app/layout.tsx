@@ -1,3 +1,4 @@
+import Hero from "@/components/home/Hero";
 import Container from "@/components/shared/Container";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
+          <Hero />
           <Container as="main">{children}</Container>
           <div className="h-16" />
           <Footer />
