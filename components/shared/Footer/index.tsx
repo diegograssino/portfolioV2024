@@ -10,7 +10,7 @@ import Container from "../Container";
 const Footer = () => {
   return (
     <footer className="mt-auto">
-      <Container className="bg-secondary-lighter dark:bg-secondary-darker rounded-tr-full text-white pt-8 pb-4">
+      <Container className="bg-secondary-lighter dark:bg-secondary-darker text-white pt-8 pb-4">
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <div className="flex flex-row justify-center gap-4">
             <Link href="">
@@ -43,7 +43,10 @@ const Footer = () => {
           <p className="flex flex-row justify-center gap-1 dark:opacity-75 text-xs sm:text-base">
             <span>Made with</span>
             <IconHeart size={20} className="flex self-center dark:opacity-75" />
-            <span>by Diego Grassino</span>
+            <span>by</span>
+            <span className="font-bold text-tertiary-darker dark:text-tertiary-lighter">
+              tDisk
+            </span>
           </p>
         </div>
       </Container>

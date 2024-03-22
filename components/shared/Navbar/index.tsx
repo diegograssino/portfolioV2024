@@ -1,12 +1,6 @@
 "use client";
 import { options } from "@/content/shared/navbar/navbar";
-import {
-  IconCircleFilled,
-  IconDeviceFloppy,
-  IconMenu2,
-  IconSearch,
-  IconX,
-} from "@tabler/icons-react";
+import { IconCircleFilled, IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -22,17 +16,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-secondary-lighter dark:bg-secondary-darker text-white pt-1 pb-2 sticky top-0 z-10 rounded-bl-full"
+      className="bg-secondary-lighter dark:bg-secondary-darker text-white py-2 sticky top-0 z-10 h-[2.5rem]"
       onMouseLeave={() => handleMenuVisibility(false)}
     >
       <Container>
-        <div className="flex justify-between">
-          <div className="flex flex-row gap-1">
-            <IconDeviceFloppy
-              className="flex self-center text-white opacity-75 z-20"
-              size={"1.5rem"}
-            />
-            <span className="font-code">diegoGrassino</span>
+        <div className="grid grid-cols-2 md:grid-cols-3">
+          <div className="flex self-center flex-row gap-1 z-20">
+            <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{`<`}</span>
+            <span className="hidden sm:block font-code text-xs lg:text-base dark:text-tertiary-lighter text-tertiary-darker font-bold">{`DiegoGrassino`}</span>
+            <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{` />`}</span>
           </div>
           <div className="hidden md:block">
             <ul className="flex justify-center gap-5">
@@ -48,13 +40,14 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="flex gap-3 md:gap-5">
-            <button className="z-20">
+          <div className="flex justify-end gap-3 md:gap-5">
+            {/* TODO Add multi language toogler */}
+            {/* <button className="z-20">
               <IconSearch
                 className="flex self-center dark:opacity-75 hover:opacity-75 transition duration-200 ease-in-out"
                 size={"1.2rem"}
               />
-            </button>
+            </button> */}
             <ToggleTheme />
             <button className="md:hidden z-20">
               {!isMenuVisible ? (

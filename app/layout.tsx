@@ -43,7 +43,6 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          asdasdasd
           <Container as="main">{children}</Container>
           <div className="h-16" />
           <Footer />
