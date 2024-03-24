@@ -1,4 +1,4 @@
-import { sections } from "@/content/shared/navbar/sections";
+import { sections } from "@/content/sections";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -45,7 +45,7 @@ const Footer = () => {
             <IconHeart size={20} className="flex self-center dark:opacity-75" />
             <span>by</span>
             <span className="font-bold text-tertiary-darker dark:text-tertiary-lighter">
-              tDisk
+              turboDisk
             </span>
           </p>
         </div>

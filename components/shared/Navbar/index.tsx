@@ -1,5 +1,5 @@
 "use client";
-import { sections } from "@/content/shared/navbar/sections";
+import { sections } from "@/content/sections";
 import { animations } from "@/utils/animations";
 import { IconCircleFilled, IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
