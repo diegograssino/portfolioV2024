@@ -1,40 +1,79 @@
 "use client";
-import { options } from "@/content/shared/navbar/navbar";
+import { sections } from "@/content/shared/navbar/sections";
+import { animations } from "@/utils/animations";
 import { IconCircleFilled, IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import Container from "../Container";
 import ToggleTheme from "../ToggleTheme";
 
 const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
-
   function handleMenuVisibility(visibility: boolean): void {
     setIsMenuVisible(visibility);
   }
 
+  const [scrolling, setScrolling] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  function handleScroll(): void {
+    if (window.scrollY > 20) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  }
+
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    console.log(searchParams.get("section"));
+  }, [searchParams]);
+
   return (
     <nav
-      className="bg-secondary-lighter dark:bg-secondary-darker text-white py-2 sticky top-0 z-10 h-[2.5rem]"
+      className={`text-white py-2 sticky top-0 h-[2.5rem] z-30 transition ease-in-out duration-700 ${
+        scrolling
+          ? "bg-secondary-lighter dark:bg-secondary-darker"
+          : "bg-transparent"
+      }`}
       onMouseLeave={() => handleMenuVisibility(false)}
     >
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-3">
+        <motion.div
+          variants={animations.fadeIn}
+          initial="initial"
+          animate="animate"
+          transition={{ duration: 0.15, delay: 0.5 }}
+          className="grid grid-cols-2 md:grid-cols-3"
+        >
           <div className="flex self-center flex-row gap-1 z-20">
             <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{`<`}</span>
-            <span className="hidden sm:block font-code text-xs lg:text-base dark:text-tertiary-lighter text-tertiary-darker font-bold">{`DiegoGrassino`}</span>
+            <span
+              className={`hidden sm:block font-code text-xs lg:text-base font-bold transition ease-in-out duration-700 ${
+                scrolling
+                  ? "text-tertiary-darker dark:text-tertiary-lighter"
+                  : "text-secondary-lighter"
+              }`}
+            >{`DiegoGrassino`}</span>
             <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{` />`}</span>
           </div>
           <div className="hidden md:block">
-            <ul className="flex justify-center gap-5">
-              {options.map((option, i) => (
+            <ul className="flex justify-center gap-7">
+              {sections.map((section, i) => (
                 <li key={i}>
                   <Link
-                    href={option.url}
-                    className="bg-transparent rounded-full px-2 pb-1 dark:opacity-75 transition duration-200 ease-in-out hover:bg-secondary-darker dark:hover:bg-secondary hover:opacity-100"
+                    href={section.url}
+                    className={`duration-200 ease-in-out hover:text-tertiary-lighter hover:dark:border-b-tertiary-darker ${
+                      searchParams.get("section") === section.slug
+                        ? "duration-100 ease-in-out border-b-2 border-b-tertiary-lighter dark:border-b-tertiary-darker"
+                        : ""
+                    }`}
                   >
-                    {option.name}
+                    {section.name}
                   </Link>
                 </li>
               ))}
@@ -65,7 +104,7 @@ const Navbar = () => {
               )}
             </button>
           </div>
-        </div>
+        </motion.div>
       </Container>
       <AnimatePresence>
         {isMenuVisible ? (
@@ -79,7 +118,7 @@ const Navbar = () => {
             className={`absolute inset-y-0 right-0 w-full h-screen md:h-auto bg-secondary pt-16 pb-8 z-0 md:hidden`}
           >
             <Container as="ul">
-              {options.map((option, i) => (
+              {sections.map((option, i) => (
                 <li key={i} className="flex gap-2">
                   <IconCircleFilled
                     className="self-center ml-1 text-tertiary"

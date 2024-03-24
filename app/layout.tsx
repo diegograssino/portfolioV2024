@@ -1,4 +1,8 @@
-import Hero from "@/components/home/Hero";
+import About from "@/components/sections/About";
+import Contact from "@/components/sections/Contact";
+import Hero from "@/components/sections/Hero";
+import AnimatedTitle from "@/components/sections/Hero/AnimatedTitle";
+import Portfolio from "@/components/sections/Portfolio";
 import Container from "@/components/shared/Container";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
@@ -44,8 +48,14 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <Hero />
-          <Container as="main">{children}</Container>
+          <Hero>
+            <AnimatedTitle />
+          </Hero>
+          <Container as="main">
+            <About />
+            <Portfolio />
+            <Contact />
+          </Container>
           <div className="h-16" />
           <Footer />
         </Providers>

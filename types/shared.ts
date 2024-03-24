@@ -1,4 +1,4 @@
-import { ElementType, HTMLAttributes } from "react";
+import { ElementType, HTMLAttributes, ReactNode } from "react";
 
 export interface IContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: ElementType;
@@ -14,4 +14,9 @@ export interface ISpinner {
   size?: "xsmall" | "small" | "default" | "large";
   speed?: "slow" | "default" | "fast";
   hasDarkBackground?: boolean;
+}
+
+export interface IParamPusherWrapper {
+  children: ReactNode;
+  param: string;
 }

@@ -1,4 +1,4 @@
-import { options } from "@/content/shared/navbar/navbar";
+import { sections } from "@/content/shared/navbar/sections";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -24,7 +24,7 @@ const Footer = () => {
             <span className="hidden sm:block">|</span>
           </div>
           <div className="flex flex-row justify-center gap-4">
-            {options.map((option, i) => (
+            {sections.map((option, i) => (
               <div
                 className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base"
                 key={i}
