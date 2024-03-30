@@ -16,7 +16,7 @@ export interface ISpinner {
   hasDarkBackground?: boolean;
 }
 
-export interface IParamPusherWrapper {
+export interface ISectionDetecterWrapper {
   children: ReactNode;
-  param: string;
+  section: string;
 }

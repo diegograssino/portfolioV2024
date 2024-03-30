@@ -10,6 +10,7 @@ import Container from "../Container";
 const Footer = () => {
   return (
     <footer className="mt-auto">
+      <div className="h-16" />
       <Container className="bg-secondary-lighter dark:bg-secondary-darker text-white pt-8 pb-4">
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <div className="flex flex-row justify-center gap-4">
@@ -24,13 +25,13 @@ const Footer = () => {
             <span className="hidden sm:block">|</span>
           </div>
           <div className="flex flex-row justify-center gap-4">
-            {sections.map((option, i) => (
+            {sections.map((section, i) => (
               <div
                 className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base"
                 key={i}
               >
-                <Link className="dark:opacity-75" href="">
-                  {option.name}
+                <Link className="dark:opacity-75" href={`#${section.slug}`}>
+                  {section.name}
                 </Link>
               </div>
             ))}

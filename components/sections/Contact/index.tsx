@@ -1,10 +1,12 @@
-import ParamPusherWrapper from "@/components/shared/ParamPusherWrapper";
+import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
 
 const Contact = () => {
   return (
-    <ParamPusherWrapper param="contact">
-      <section className="h-[calc(100vh-2.5rem)]">Contact</section>
-    </ParamPusherWrapper>
+    <SectionDetecterWrapper section="contact">
+      <section className="min-h-[calc(100vh-2.5rem)] pt-10" id="contact">
+        Contact
+      </section>
+    </SectionDetecterWrapper>
   );
 };
 

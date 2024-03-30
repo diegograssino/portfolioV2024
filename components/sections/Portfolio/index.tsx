@@ -1,10 +1,12 @@
-import ParamPusherWrapper from "@/components/shared/ParamPusherWrapper";
+import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
 
 const Portfolio = () => {
   return (
-    <ParamPusherWrapper param="portfolio">
-      <section className="h-[calc(100vh-2.5rem)]">Portfolio</section>
-    </ParamPusherWrapper>
+    <SectionDetecterWrapper section="portfolio">
+      <section className="min-h-[calc(100vh-2.5rem)] pt-10" id="portfolio">
+        Portfolio
+      </section>
+    </SectionDetecterWrapper>
   );
 };
 

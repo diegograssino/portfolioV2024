@@ -11,4 +11,8 @@ export const animations = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   },
+  rebound: {
+    initial: { y: 0 },
+    animate: { y: [0, -7.5, 0] },
+  },
 };

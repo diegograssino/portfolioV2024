@@ -1,11 +1,11 @@
 "use client";
 import { sections } from "@/content/sections";
+import { SectionContext } from "@/contexts/section";
 import { animations } from "@/utils/animations";
 import { IconCircleFilled, IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Container from "../Container";
 import ToggleTheme from "../ToggleTheme";
 
@@ -28,11 +28,14 @@ const Navbar = () => {
     }
   }
 
-  const searchParams = useSearchParams();
-  useEffect(() => {
-    console.log(searchParams.get("section"));
-  }, [searchParams]);
+  const isBrowser = () => typeof window !== "undefined";
 
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  const { actualSection } = useContext(SectionContext)!;
   return (
     <nav
       className={`text-white py-2 sticky top-0 h-[2.5rem] z-30 transition ease-in-out duration-700 ${
@@ -47,29 +50,35 @@ const Navbar = () => {
           variants={animations.fadeIn}
           initial="initial"
           animate="animate"
-          transition={{ duration: 0.15, delay: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
           className="grid grid-cols-2 md:grid-cols-3"
         >
-          <div className="flex self-center flex-row gap-1 z-20">
+          {/* TODO On mobile navbar view, on click close the offcanvas */}
+          <div
+            className="flex self-center flex-row gap-1 z-20 cursor-pointer"
+            onClick={scrollToTop}
+          >
             <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{`<`}</span>
             <span
               className={`hidden sm:block font-code text-xs lg:text-base font-bold transition ease-in-out duration-700 ${
                 scrolling
                   ? "text-tertiary-darker dark:text-tertiary-lighter"
-                  : "text-secondary-lighter"
+                  : "text-white"
               }`}
-            >{`DiegoGrassino`}</span>
+            >{`MyPortfolio`}</span>
             <span className="font-code text-xs lg:text-base text-tertiary-lighter sm:text-white">{` />`}</span>
           </div>
+          {/* TODO refactor navbar to show only desktop or mobile version, not using display none */}
           <div className="hidden md:block">
             <ul className="flex justify-center gap-7">
               {sections.map((section, i) => (
                 <li key={i}>
                   <Link
-                    href={section.url}
-                    className={`duration-200 ease-in-out hover:text-tertiary-lighter hover:dark:border-b-tertiary-darker ${
-                      searchParams.get("section") === section.slug
-                        ? "duration-100 ease-in-out border-b-2 border-b-tertiary-lighter dark:border-b-tertiary-darker"
+                    href={`#${section.slug}`}
+                    className={`duration-100 ease-in-out hover:text-tertiary-lighter hover:dark:border-b-tertiary-darker ${
+                      // TODO Debounce change of style to wait the animations
+                      actualSection === section.slug
+                        ? "border-b-2 border-b-tertiary-lighter dark:border-b-tertiary-darker"
                         : ""
                     }`}
                   >
@@ -87,6 +96,7 @@ const Navbar = () => {
                 size={"1.2rem"}
               />
             </button> */}
+            {/* TODO Add a B&W theme if scrolling */}
             <ToggleTheme />
             <button className="md:hidden z-20">
               {!isMenuVisible ? (
@@ -118,18 +128,18 @@ const Navbar = () => {
             className={`absolute inset-y-0 right-0 w-full h-screen md:h-auto bg-secondary pt-16 pb-8 z-0 md:hidden`}
           >
             <Container as="ul">
-              {sections.map((option, i) => (
+              {sections.map((section, i) => (
                 <li key={i} className="flex gap-2">
                   <IconCircleFilled
                     className="self-center ml-1 text-tertiary"
                     size={16}
                   />
                   <Link
-                    href={option.url}
+                    href={`#${section.slug}`}
                     className="text-[1.5rem] hover:font-bold"
                     onClick={() => handleMenuVisibility(false)}
                   >
-                    {option.name}
+                    {section.name}
                   </Link>
                 </li>
               ))}
