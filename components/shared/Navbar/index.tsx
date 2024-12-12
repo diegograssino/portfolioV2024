@@ -10,16 +10,15 @@ import Container from "../Container";
 import ToggleTheme from "../ToggleTheme";
 
 const Navbar = () => {
+  const { inViewSection } = useContext(SectionContext)!;
   const [isMenuVisible, setIsMenuVisible] = useState(false);
-  function handleMenuVisibility(visibility: boolean): void {
-    setIsMenuVisible(visibility);
-  }
-
   const [scrolling, setScrolling] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   function handleScroll(): void {
     if (window.scrollY > 20) {
       setScrolling(true);
@@ -28,6 +27,9 @@ const Navbar = () => {
     }
   }
 
+  function handleMenuVisibility(visibility: boolean): void {
+    setIsMenuVisible(visibility);
+  }
   const isBrowser = () => typeof window !== "undefined";
 
   function scrollToTop() {
@@ -35,7 +37,6 @@ const Navbar = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const { actualSection } = useContext(SectionContext)!;
   return (
     <nav
       className={`text-white py-2 sticky top-0 h-[2.5rem] z-30 transition ease-in-out duration-700 ${
@@ -77,7 +78,7 @@ const Navbar = () => {
                     href={`#${section.slug}`}
                     className={`duration-100 ease-in-out hover:text-tertiary-lighter hover:dark:border-b-tertiary-darker ${
                       // TODO Debounce change of style to wait the animations
-                      actualSection === section.slug
+                      inViewSection === section.slug
                         ? "border-b-2 border-b-tertiary-lighter dark:border-b-tertiary-darker"
                         : ""
                     }`}
@@ -97,7 +98,7 @@ const Navbar = () => {
               />
             </button> */}
             {/* TODO Add a B&W theme if scrolling */}
-            <ToggleTheme />
+            <ToggleTheme isVisible={scrolling} />
             <button className="md:hidden z-20">
               {!isMenuVisible ? (
                 <IconMenu2

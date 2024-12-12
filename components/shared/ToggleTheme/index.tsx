@@ -1,10 +1,11 @@
 "use client";
+import { ToogleThemeProps } from "@/types/shared";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ToggleTheme = () => {
+const ToggleTheme = ({ isVisible = true }: ToogleThemeProps) => {
   const { resolvedTheme, setTheme } = useTheme();
 
   function handleTheme(): void {
@@ -15,6 +16,8 @@ const ToggleTheme = () => {
   useEffect(() => {
     !mounted && setMounted(true);
   }, []);
+
+  if (!isVisible) return null;
 
   return (
     <div className="flex gap-1 z-20">

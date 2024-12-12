@@ -1,10 +1,10 @@
 "use client";
 import { SectionContext } from "@/contexts/section";
-import { SectionDetecterProper } from "@/types/shared";
+import { SectionDetecterProps } from "@/types/shared";
 import { useInView } from "framer-motion";
 import { useContext, useEffect, useRef } from "react";
 
-const SectionDetecter = ({ children, section }: SectionDetecterProper) => {
+const SectionDetecter = ({ children, section }: SectionDetecterProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.6 });
   const { inViewSection, setInViewSection } = useContext(SectionContext)!;

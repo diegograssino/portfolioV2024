@@ -16,7 +16,11 @@ export interface SpinnerProps {
   hasDarkBackground?: boolean;
 }
 
-export interface SectionDetecterProper {
+export interface SectionDetecterProps {
   children: ReactNode;
   section: string;
+}
+
+export interface ToogleThemeProps {
+  isVisible?: boolean;
 }
