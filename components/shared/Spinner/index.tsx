@@ -1,5 +1,5 @@
 "use client";
-import { ISpinner } from "@/types/shared";
+import { SpinnerProps } from "@/types/shared";
 import { motion } from "framer-motion";
 
 const Spinner = ({
@@ -7,7 +7,7 @@ const Spinner = ({
   size = "default",
   speed = "default",
   hasDarkBackground = false,
-}: ISpinner) => {
+}: SpinnerProps) => {
   const sizes = {
     xsmall: { width: "w-[6px]", height: "h-[6px]", gap: "gap-[2px]" },
     small: { width: "w-2", height: "h-2", gap: "gap-1" },

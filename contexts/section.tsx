@@ -1,12 +1,17 @@
-import { ISectionContext } from "@/types/contexts";
+import { SectionContextProps } from "@/types/contexts";
 import { ReactNode, createContext, useState } from "react";
 
-export const SectionContext = createContext<ISectionContext | null>(null);
+export const SectionContext = createContext<SectionContextProps | null>(null);
 
 const SectionProvider = ({ children }: { children: ReactNode }) => {
-  const [actualSection, setActualSection] = useState<string | null>(null);
+  const [inViewSection, setInViewSection] = useState<string | null>(null);
   return (
-    <SectionContext.Provider value={{ actualSection, setActualSection }}>
+    <SectionContext.Provider
+      value={{
+        inViewSection,
+        setInViewSection,
+      }}
+    >
       {children}
     </SectionContext.Provider>
   );

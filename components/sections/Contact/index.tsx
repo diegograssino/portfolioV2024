@@ -1,4 +1,4 @@
-import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
+import SectionDetecterWrapper from "@/components/shared/SectionDetecter";
 
 const Contact = () => {
   return (

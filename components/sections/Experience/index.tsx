@@ -1,12 +1,12 @@
-import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
+import SectionDetecter from "@/components/shared/SectionDetecter";
 
 const Experience = () => {
   return (
-    <SectionDetecterWrapper section="experience">
+    <SectionDetecter section="experience">
       <section className="min-h-[calc(100vh-2.5rem)] pt-10" id="experience">
         Experience
       </section>
-    </SectionDetecterWrapper>
+    </SectionDetecter>
   );
 };
 

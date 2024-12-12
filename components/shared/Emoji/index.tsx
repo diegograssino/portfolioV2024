@@ -1,6 +1,6 @@
-import { IEmojiProps } from "@/types/shared";
+import { EmojiProps } from "@/types/shared";
 
-const Emoji = ({ label = "", symbol }: IEmojiProps) => {
+const Emoji = ({ label = "false", symbol }: EmojiProps) => {
   return (
     <span
       role="img"

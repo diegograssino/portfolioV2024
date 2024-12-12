@@ -1,4 +1,4 @@
-import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
+import SectionDetecter from "@/components/shared/SectionDetecter";
 import {
   IconBrandAws,
   IconBrandCss3,
@@ -15,7 +15,7 @@ import {
 
 const About = () => {
   return (
-    <SectionDetecterWrapper section="about">
+    <SectionDetecter section="about">
       <section className="h-[calc(100vh)]" id="about">
         <div className="h-10" />
         <div className="grid grid-cols-2 grid-rows-8 gap-6 h-[calc(100vh-2.5rem)] py-6 [&>article]:rounded-lg [&>article]:p-4">
@@ -30,6 +30,7 @@ const About = () => {
           </article>
           <article className="flex flex-wrap justify-center gap-4 col-span-2 row-span-3 [&>div]:h-1/2 [&>div]:w-1/6">
             <div className="flex flex-col justify-center items-center">
+              {/* <Icon name="BrandReact" /> */}
               <IconBrandReact size={48} className="opacity-75" />
               <span>React</span>
             </div>
@@ -70,17 +71,17 @@ const About = () => {
             <p className="text-6xl font-bold">+4 XP</p>
             <p className="text-4xl">years</p>
           </article>
-          <article className="flex gap-1 items-center justify-center bg-[#0077b5] text-white">
+          <article className="flex gap-2 items-center bg-[#0077b5] text-white">
             <IconBrandLinkedin size={30} />
             <p className="text-3xl">LinkedIn</p>
           </article>
-          <article className="flex gap-1 items-center justify-center bg-black text-white">
+          <article className="flex gap-2 items-center bg-black text-white">
             <IconBrandGithub size={30} />
             <p className="text-3xl">Github</p>
           </article>
         </div>
       </section>
-    </SectionDetecterWrapper>
+    </SectionDetecter>
   );
 };
 

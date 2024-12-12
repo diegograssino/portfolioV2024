@@ -1,4 +1,4 @@
-import SectionDetecterWrapper from "@/components/shared/SectionDetecterWrapper";
+import SectionDetecterWrapper from "@/components/shared/SectionDetecter";
 import { IHero } from "@/types/sections";
 import Image from "next/image";
 import starfield from "../../../public/assets/starfield.gif";
