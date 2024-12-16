@@ -1,4 +1,3 @@
-import { sections } from "@/content/sections";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -19,22 +18,22 @@ const Footer = () => {
             </Link>
             <span className="hidden sm:block">|</span>
             <Link href="">
-              <IconBrandLinkedin className="dark:opacity-75" />{" "}
+              <IconBrandLinkedin className="dark:opacity-75" />
             </Link>
 
             <span className="hidden sm:block">|</span>
           </div>
           <div className="flex flex-row justify-center gap-4">
-            {sections.map((section, i) => (
-              <div
-                className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base"
-                key={i}
-              >
-                <Link className="dark:opacity-75" href={`#${section.slug}`}>
-                  {section.name}
-                </Link>
-              </div>
-            ))}
+            <div className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base">
+              <Link className="dark:opacity-75" href={`#about`}>
+                About
+              </Link>
+            </div>
+            <div className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base">
+              <Link className="dark:opacity-75" href={`#contact`}>
+                Contact Me
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

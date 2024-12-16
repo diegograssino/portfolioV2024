@@ -6,7 +6,7 @@ const Container = ({
   ...otherProps
 }: ContainerProps) => {
   return (
-    <Tag className="max-w-[1280px] mx-auto px-5" {...otherProps}>
+    <Tag className="w-full max-w-[1280px] mx-auto px-5" {...otherProps}>
       {children}
     </Tag>
   );
