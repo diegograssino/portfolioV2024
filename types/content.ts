@@ -1,11 +1,6 @@
-export interface Sections {
-  name: string;
-  slug: string;
-  url: string;
-}
-
-export interface Skills {
-  name: string;
-  slug: string;
-  icon: string;
-}
+export type Metadata = {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+};
