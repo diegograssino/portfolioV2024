@@ -4,3 +4,9 @@ export type Metadata = {
   summary: string;
   image?: string;
 };
+
+export interface Contents {
+  metadata: Metadata;
+  slug: string;
+  content: string;
+}

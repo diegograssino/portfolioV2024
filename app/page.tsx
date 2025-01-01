@@ -3,24 +3,27 @@ import Hero from "@/components/sections/Hero";
 import AnimatedContent from "@/components/sections/Hero/AnimatedContent";
 import Container from "@/components/shared/Container";
 
+import { Contents } from "@/types/content";
 import { Fragment } from "react";
 import { CustomMDX } from "../components/shared/MDXRenderer/MDXRenderer";
 import { getAllContent } from "../utils/mdx";
 
-export async function generateStaticParams() {
-  let posts = getAllContent();
+export function generateStaticParams() {
+  let contents = getAllContent();
 
-  return posts.map((post) => ({
-    slug: post.slug,
+  return contents.map(({ slug, content }) => ({
+    slug: slug,
+    content: content,
   }));
 }
 
-export default function Home() {
-  let contents = getAllContent();
+export default function Home({ params }: { params: { contents: Contents[] } }) {
+  const { contents } = params;
+  console.log(contents);
 
-  if (!contents) {
-    return null;
-  }
+  // if (!contents) {
+  //   return null;
+  // }
 
   return (
     <>
