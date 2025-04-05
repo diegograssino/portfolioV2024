@@ -6,6 +6,7 @@ module.exports = {
       sm: "480px", // 480x800
       md: "768px", // 768x1024
       lg: "1024px", // 1024x768
+      "2lg": "1280px", // 1024x768
       xl: "1440px", // 1440x900
     },
     // Color palette based on: https://www.colorhunt.co/palette/2525256930c364dfdf80ffdb

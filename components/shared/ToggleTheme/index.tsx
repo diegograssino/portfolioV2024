@@ -20,7 +20,7 @@ const ToggleTheme = () => {
     <div className="flex gap-1 z-20">
       {mounted ? (
         <button
-          className="self-center w-10 h-6 rounded-full px-[2px] py-[2px] border-2 border-white border-opacity-50 transition duration-300 ease-in-out bg-secondary hover:bg-secondary-lighter dark:hover:bg-secondary-darker active:bg-secondary-darker dark:active:bg-secondary-lighter"
+          className="self-center w-10 h-6 rounded-full px-[2px] py-[2px] border-2 border-white border-opacity-50 transition duration-300 ease-in-out bg-secondary/80 hover:bg-secondary-lighter/90 dark:hover:bg-secondary-darker/80 active:bg-secondary-darker/80 dark:active:bg-secondary-lighter/90"
           onClick={handleTheme}
         >
           <div

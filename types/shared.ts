@@ -1,22 +1,22 @@
 import { ElementType, HTMLAttributes, ReactNode } from "react";
 
-export interface IContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
+export interface ContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: ElementType;
 }
 
-export interface IEmojiProps {
+export interface EmojiProps {
   symbol: string;
   label?: string;
 }
 
-export interface ISpinner {
+export interface SpinnerProps {
   dots?: number;
   size?: "xsmall" | "small" | "default" | "large";
   speed?: "slow" | "default" | "fast";
   hasDarkBackground?: boolean;
 }
 
-export interface IParamPusherWrapper {
+export interface SectionDetecterProps {
   children: ReactNode;
-  param: string;
+  section: string;
 }

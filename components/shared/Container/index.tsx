@@ -1,15 +1,13 @@
-import { IContainerProps } from "@/types/shared";
+import { ContainerProps } from "@/types/shared";
 
 const Container = ({
   children,
   as: Tag = "div",
   ...otherProps
-}: IContainerProps) => {
+}: ContainerProps) => {
   return (
-    <Tag>
-      <div className="max-w-[1280px] mx-auto px-5" {...otherProps}>
-        {children}
-      </div>
+    <Tag className="w-full max-w-[1280px] mx-auto px-5" {...otherProps}>
+      {children}
     </Tag>
   );
 };
