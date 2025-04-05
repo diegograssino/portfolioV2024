@@ -31,7 +31,7 @@ function CustomLink(
 
   return (
     <a
-      className="hover:underline border border-white rounded-xl p-2 first:mr-4"
+      className="hover:underline border border-white rounded-xl p-2 first:mr-4 block sm:inline w-full sm:w-auto first:mb-2 first:sm:mb-0"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
