@@ -20,7 +20,3 @@ export interface SectionDetecterProps {
   children: ReactNode;
   section: string;
 }
-
-export interface ToogleThemeProps {
-  isVisible?: boolean;
-}

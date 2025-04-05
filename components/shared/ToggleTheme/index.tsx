@@ -1,11 +1,10 @@
 "use client";
-import { ToogleThemeProps } from "@/types/shared";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ToggleTheme = ({ isVisible = true }: ToogleThemeProps) => {
+const ToggleTheme = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   function handleTheme(): void {
@@ -17,13 +16,11 @@ const ToggleTheme = ({ isVisible = true }: ToogleThemeProps) => {
     !mounted && setMounted(true);
   }, []);
 
-  if (!isVisible) return null;
-
   return (
     <div className="flex gap-1 z-20">
       {mounted ? (
         <button
-          className="self-center w-10 h-6 rounded-full px-[2px] py-[2px] border-2 border-white border-opacity-50 transition duration-300 ease-in-out bg-secondary hover:bg-secondary-lighter dark:hover:bg-secondary-darker active:bg-secondary-darker dark:active:bg-secondary-lighter"
+          className="self-center w-10 h-6 rounded-full px-[2px] py-[2px] border-2 border-white border-opacity-50 transition duration-300 ease-in-out bg-secondary/80 hover:bg-secondary-lighter/90 dark:hover:bg-secondary-darker/80 active:bg-secondary-darker/80 dark:active:bg-secondary-lighter/90"
           onClick={handleTheme}
         >
           <div

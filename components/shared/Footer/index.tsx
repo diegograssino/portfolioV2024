@@ -1,4 +1,3 @@
-import { sections } from "@/content/sections";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -14,27 +13,28 @@ const Footer = () => {
       <Container className="bg-secondary-lighter dark:bg-secondary-darker text-white pt-8 pb-4">
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <div className="flex flex-row justify-center gap-4">
-            <Link href="">
+            <Link target="_blank" href="https://github.com/diegograssino">
               <IconBrandGithub className="dark:opacity-75" />
             </Link>
             <span className="hidden sm:block">|</span>
-            <Link href="">
-              <IconBrandLinkedin className="dark:opacity-75" />{" "}
+            <Link target="_blank" href="https://linkedin.com/in/diegograssino">
+              <IconBrandLinkedin className="dark:opacity-75" />
             </Link>
 
             <span className="hidden sm:block">|</span>
           </div>
           <div className="flex flex-row justify-center gap-4">
-            {sections.map((section, i) => (
-              <div
-                className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base"
-                key={i}
-              >
-                <Link className="dark:opacity-75" href={`#${section.slug}`}>
-                  {section.name}
-                </Link>
-              </div>
-            ))}
+            <div className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base">
+              <Link className="dark:opacity-75" href={`#about`}>
+                About
+              </Link>
+            </div>
+            {/* TODO Create Contact Form */}
+            {/* <div className="flex flex-row gap-2 mb-2 after:content-['|'] after:last:content-[''] text-xs sm:text-base">
+              <Link className="dark:opacity-75" href={`#contact`}>
+                Contact Me
+              </Link>
+            </div> */}
           </div>
         </div>
       </Container>
@@ -46,7 +46,7 @@ const Footer = () => {
             <IconHeart size={20} className="flex self-center dark:opacity-75" />
             <span>by</span>
             <span className="font-bold text-tertiary-darker dark:text-tertiary-lighter">
-              turboDisk
+              Diego
             </span>
           </p>
         </div>
