@@ -1,8 +1,6 @@
 "use client";
 import { animations } from "@/utils/animations";
-import { IconMail } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Container from "../Container";
 import ToggleTheme from "../ToggleTheme";
@@ -31,7 +29,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav
+    <header
       className={`text-white py-2 sticky top-0 z-30 transition ease-in-out duration-700 ${
         scrolling
           ? "bg-secondary-lighter/90 dark:bg-secondary-darker/80"
@@ -74,20 +72,21 @@ const Navbar = () => {
                 className="flex justify-end gap-8 md:gap-4"
               >
                 {/* TODO Add multi language toogler */}
-                <Link
+                {/* TODO Create Contact form */}
+                {/* <Link
                   href={"/#contact"}
                   className="flex items-center gap-1 transition duration-300 ease-in-out hover:opacity-80"
                 >
                   <IconMail />
                   <span className="hidden md:block mb-[2px]">Contact Me</span>
-                </Link>
+                </Link> */}
                 <ToggleTheme />
               </motion.div>
             ) : null}
           </AnimatePresence>
         </motion.div>
       </Container>
-    </nav>
+    </header>
   );
 };
 

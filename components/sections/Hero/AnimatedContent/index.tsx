@@ -55,7 +55,7 @@ const AnimatedContent = () => {
           animate="animate"
           className="rounded-full border-white border-2 p-2 text-2xl font-bold"
         >
-          <Link href="#about">
+          <Link href="#content">
             <IconArrowDown color="white" />
           </Link>
         </motion.div>
