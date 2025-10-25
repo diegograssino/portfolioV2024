@@ -117,7 +117,7 @@ function CustomUl(
 function CustomLi(
   props: DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>
 ) {
-  return <li className="mb-1 last:mb-0" {...props} />;
+  return <li className="mb-1 last:mb-0 list-disc" {...props} />;
 }
 
 export function CustomMDX({ source, components }: CustomMDXProps) {
